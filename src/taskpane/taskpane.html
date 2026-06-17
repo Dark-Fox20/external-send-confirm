@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Confirmar Envío Externo</title>
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <link rel="stylesheet" href="taskpane.css"/>
+</head>
+<body>
+  <div class="container">
+
+    <div class="header">
+      <div class="warning-icon">⚠️</div>
+      <h2 class="title">Confirmar Envío Externo</h2>
+      <p class="subtitle">
+        Este correo contiene <strong>destinatarios fuera de tu organización</strong>
+        y <strong>archivos adjuntos</strong>. Revisa antes de continuar.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3 class="section-title">👤 Destinatarios externos</h3>
+      <ul id="recipientsList" class="list recipients-list"></ul>
+    </div>
+
+    <div class="section">
+      <h3 class="section-title">📎 Archivos adjuntos</h3>
+      <ul id="attachmentsList" class="list attachments-list"></ul>
+    </div>
+
+    <div class="confirmation-box">
+      <label class="checkbox-label">
+        <input type="checkbox" id="confirmCheck" onchange="toggleSendButton()"/>
+        <span>
+          Confirmo que:
+          <ul class="confirm-items">
+            <li>✔ Revisé los destinatarios y el envío es <strong>intencional</strong></li>
+            <li>✔ Los archivos adjuntos están <strong>encriptados o protegidos</strong></li>
+            <li>✔ Entiendo que estoy enviando información <strong>fuera de la organización</strong></li>
+          </ul>
+        </span>
+      </label>
+    </div>
+
+    <div class="buttons">
+      <button id="cancelBtn" class="btn btn-default" onclick="cancelSend()">
+        ✗ Cancelar — Revisar correo
+      </button>
+      <button id="confirmBtn" class="btn btn-primary" onclick="confirmSend()" disabled>
+        ✓ Confirmar y Enviar
+      </button>
+    </div>
+
+  </div>
+  <script src="taskpane.js"></script>
+</body>
+</html>
